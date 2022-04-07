@@ -1,15 +1,7 @@
 const countProps = function (obj) {
   // твій код
-    
-    const keys = Object.keys(obj);
-
-    // console.log(keys);
-    return(keys.length);///наша відповідь
-
-    // for (const key of keys) {
-    //     console.log(key);
-    //     // console.log(obj[key]);
-    // }
+  const keys = Object.keys(obj);
+  return(keys.length);
 };
 
 /*
