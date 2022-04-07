@@ -5,18 +5,16 @@ const products = [
   { name: 'Захоплення', price: 1200, quantity: 2 },
 ];
 
-
 const getAllPropValues = function (arr, prop) {
   // твій код
-  const names = [];
-  for (const product of arr) {
-    
-    if (product[prop] !== undefined) {
-      names.push(product[prop]);
-    }
-  }
+  const askedArrays = [];
 
-  return(names);
+  for (const ar of arr) {
+    if (ar[prop] !== undefined) {
+      askedArrays.push(ar[prop]);
+    } 
+  }
+  return askedArrays;
 };
 
 /*
