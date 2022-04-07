@@ -1,23 +1,21 @@
 const findBestEmployee = function (employees) {
   // твій код
-    const keys = Object.keys(employees);
-    console.log(keys);
+  const keys = Object.keys(employees);
 
-    let mostTasks = 0;
-    let theMostProductive = '';
+  let maxValue = 0;
+  let theMostProductive = '';
 
-    for (const key of keys) {
-        // console.log(key);
-        // console.log(employees[key]);
-        if (mostTasks < employees[key]) {
-            mostTasks = employees[key];
-            theMostProductive = key;
-        }
+  
+  for (const key of keys) {
+    const value = employees[key];
+
+    if (value > maxValue) {
+      maxValue = value;
+      theMostProductive = key;
     }
+  }
 
-    // console.log(mostTasks);
-    // console.log(theMostProductive);
-    return theMostProductive;
+  return(theMostProductive);
 };
 
 /*
