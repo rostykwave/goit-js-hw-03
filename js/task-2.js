@@ -4,6 +4,7 @@ const countProps = function (obj) {
   return(keys.length);
 };
 
+// const countProps = obj => Object.keys(obj).length;
 /*
  * Викличи функції для перевірки працездатності твоєї реалізації.
  */

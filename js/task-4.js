@@ -1,26 +1,13 @@
 const countTotalSalary = function (employees) {
   // твій код
-    // const keys = Object.keys(employees);
-    // console.log(keys);
+  const values = Object.values(employees);
+  let total = 0;
 
-    const values = Object.values(employees);
-    console.log(values);
-
-    let totalSalary = 0;
-
-    // for (const key of keys) {
-    //     // console.log(key);
-    //     // console.log(employees[key]);
-    //     totalSalary += employees[key];
-    // }
-
-    for (const value of values) {
-        totalSalary += value;
-    }
-
-    return totalSalary;
-};
-
+  for (const value of values) {
+    total += value;
+  }
+  return total;
+}
 /*
  * Викличи функції для перевірки працездатності твоєї реалізації.
  */
@@ -41,3 +28,4 @@ console.log(
     chelsy: 150,
   }),
 ); // 400
+
