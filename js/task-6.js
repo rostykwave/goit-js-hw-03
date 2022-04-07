@@ -5,17 +5,30 @@ const products = [
   { name: 'Захоплення', price: 1200, quantity: 2 },
 ];
 
+
 const calculateTotalPrice = function (allProdcuts, productName) {
   // твій код
-    for (const product of allProdcuts) {
-        
-        if (product.name === productName) {
-            return product.price * product.quantity;
-        }
-        
+  
+  for (const product of allProdcuts) {
+    const { name, price, quantity } = product;
+    
+    if (name === productName) {
+      return price * quantity;
     }
-    return `Такого продукту не знайдено`
+  }
 };
+
+///Варінт без деструктуризації
+// const calculateTotalPrice = function (allProdcuts, productName) {
+//   // твій код
+  
+//   for (const product of allProdcuts) {
+    
+//     if (product.name === productName) {
+//       return product.price * product.quantity;
+//     }
+//   }
+// };
 
 /*
  * Викличи функції для перевірки працездатності твоєї реалізації.
