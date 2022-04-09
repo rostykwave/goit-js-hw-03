@@ -90,13 +90,14 @@ const account = {
    * певного типу транзакції з усієї історії транзакцій
    */
   getTransactionTotal(type) {
+    let totalTransactionsByType = 0;
+
     for (const transaction of this.transactions) {
-      // console.log(transaction.type);
       if (transaction.type === type) {
-        return transaction
+        totalTransactionsByType += transaction.amount;
       }
-      return 'Такого типу трансакцій не знайдено'
     }
+    return totalTransactionsByType;
   },
 };
 
@@ -119,11 +120,16 @@ console.log('Баланс після: ',account.getBalance(),'getBalance');
 
 console.log('Масив після: ', account.transactions);
 
+
+
+///виведення суми всіх трансакцій за типом
+console.log('getTransactionTotal(deposit): ', account.getTransactionTotal('deposit'));
+
+console.log('getTransactionTotal(withdraw): ',account.getTransactionTotal('withdraw'));
+
+
 ///пошук по id
 console.log('getTransactionDetails(id): ', account.getTransactionDetails('deposit-5'));
-
-console.log('getTransactionTotal: ',account.getTransactionTotal('deposit'));
-
 
 
 
