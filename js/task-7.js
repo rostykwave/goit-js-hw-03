@@ -7,6 +7,9 @@ const Transaction = {
   WITHDRAW: 'withdraw',
 };
 
+// const transaction = {
+//     };
+
 /*
  * Кожна транзакція - це об'єкт з властивостями: id, type і amount
  */
@@ -22,7 +25,16 @@ const account = {
    * Метод створює і повертає об'єкт транзакції.
    * Приймає суму і тип транзакції.
    */
-  createTransaction(amount, type) {},
+  createTransaction(amount, type) {
+    const transaction = {
+    };
+    transaction.amount = amount;
+    transaction.type = type;
+
+    return transaction;
+
+
+  },
 
   /*
    * Метод відповідає за додавання суми до балансу.
@@ -30,7 +42,16 @@ const account = {
    * Викликає createTransaction для створення об'єкта транзакції
    * після чого додає його в історію транзакцій
    */
-  deposit(amount) {},
+  deposit(amount) {
+    this.balance += amount;
+
+    const transaction = this.createTransaction(amount, 'deposit');
+
+    this.transactions.push(transaction);
+
+
+    return this.transactions;
+  },
 
   /*
    * Метод відповідає за зняття суми з балансу.
@@ -41,7 +62,15 @@ const account = {
    * Якщо amount більше, ніж поточний баланс, виводь повідомлення
    * про те, що зняття такої суми не можливо, недостатньо коштів.
    */
-  withdraw(amount) {},
+  withdraw(amount) {
+    this.balance -= amount;
+
+    const transaction = this.createTransaction(amount, 'withdraw');
+
+    this.transactions.push(transaction);
+
+    return this.transactions;
+  },
 
   /*
    * Метод повертає поточний баланс
@@ -59,6 +88,23 @@ const account = {
    */
   getTransactionTotal(type) {},
 };
+
+/////LOGS
+
+console.log(account.balance);
+console.log(account.transactions);
+// console.log(account.createTransaction(2, 'deposit'));
+
+///deposit
+console.log(account.deposit(5));
+console.log('Баланс після депозиту', account.balance);
+
+
+///withdraw
+console.log(account.withdraw(3));
+console.log('Баланс після зняття', account.balance);
+
+
 
 
 
