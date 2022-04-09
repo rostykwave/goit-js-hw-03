@@ -103,8 +103,8 @@ const account = {
 
 /////LOGS
 
-console.log('Баланс до: ',account.balance);
-console.log('Масив до: ',account.transactions);
+// console.log('Баланс до: ',account.balance);
+// console.log('Масив до: ',account.transactions);
 // console.log(account.createTransaction(2, 'deposit'));
 
 ///deposit
