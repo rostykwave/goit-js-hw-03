@@ -7,9 +7,6 @@ const Transaction = {
   WITHDRAW: 'withdraw',
 };
 
-// const transaction = {
-//     };
-
 /*
  * Кожна транзакція - це об'єкт з властивостями: id, type і amount
  */
@@ -50,7 +47,7 @@ const account = {
     this.transactions.push(transaction);
 
 
-    return this.transactions;
+    return transaction;
   },
 
   /*
@@ -69,13 +66,15 @@ const account = {
 
     this.transactions.push(transaction);
 
-    return this.transactions;
+    return transaction;
   },
 
   /*
    * Метод повертає поточний баланс
    */
-  getBalance() {},
+  getBalance() {
+    return this.balance;
+  },
 
   /*
    * Метод шукає і повертає об'єкт транзакції по id
@@ -86,24 +85,36 @@ const account = {
    * Метод повертає кількість коштів
    * певного типу транзакції з усієї історії транзакцій
    */
-  getTransactionTotal(type) {},
+  getTransactionTotal(type) {
+    for (const transaction of this.transactions) {
+      // console.log(transaction.type);
+      if (transaction.type === type) {
+        return transaction
+      }
+      return 'Такого типу трансакцій не знайдено'
+    }
+  },
 };
 
 /////LOGS
 
-console.log(account.balance);
-console.log(account.transactions);
+console.log('Баланс до: ',account.balance);
+console.log('Масив до: ',account.transactions);
 // console.log(account.createTransaction(2, 'deposit'));
 
 ///deposit
-console.log(account.deposit(5));
-console.log('Баланс після депозиту', account.balance);
+console.log('deposit',account.deposit(5));
+// console.log('Баланс після депозиту', account.balance);
 
 
 ///withdraw
-console.log(account.withdraw(3));
-console.log('Баланс після зняття', account.balance);
+console.log('withdraw',account.withdraw(3));
+// console.log('Баланс після зняття', account.balance);
 
+console.log('Баланс після: ',account.getBalance(),'getBalance');
+
+console.log('Масив після: ',account.transactions);
+console.log('getTransactionTotal: ',account.getTransactionTotal('deposit'));
 
 
 
