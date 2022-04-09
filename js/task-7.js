@@ -27,10 +27,9 @@ const account = {
     };
     transaction.amount = amount;
     transaction.type = type;
+    transaction.id = type + '-' + amount;
 
     return transaction;
-
-
   },
 
   /*
@@ -43,7 +42,6 @@ const account = {
     this.balance += amount;
 
     const transaction = this.createTransaction(amount, 'deposit');
-
     this.transactions.push(transaction);
 
 
@@ -63,7 +61,6 @@ const account = {
     this.balance -= amount;
 
     const transaction = this.createTransaction(amount, 'withdraw');
-
     this.transactions.push(transaction);
 
     return transaction;
@@ -79,7 +76,14 @@ const account = {
   /*
    * Метод шукає і повертає об'єкт транзакції по id
    */
-  getTransactionDetails(id) {},
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction
+      }
+      return 'Трансакцій з таким id не знайдено'
+    }
+  },
 
   /*
    * Метод повертає кількість коштів
@@ -113,7 +117,11 @@ console.log('withdraw',account.withdraw(3));
 
 console.log('Баланс після: ',account.getBalance(),'getBalance');
 
-console.log('Масив після: ',account.transactions);
+console.log('Масив після: ', account.transactions);
+
+///пошук по id
+console.log('getTransactionDetails(id): ', account.getTransactionDetails('deposit-5'));
+
 console.log('getTransactionTotal: ',account.getTransactionTotal('deposit'));
 
 
